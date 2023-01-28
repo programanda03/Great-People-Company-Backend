@@ -1,0 +1,29 @@
+<div class="margem-superior">
+    <h2 class="mb-3">Suas Vagas</h2>
+    <table class="table table-striped mb-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Turno</th>
+                <th>Modalidade</th>
+                <th>Escolaridade</th>
+                <th>Título da vaga</th>
+                <th>Salário</th>
+                <th>Data limite de inscrição</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vaga of listaVagas">
+                <td>{{vaga.id}}</td>
+                <td>{{vaga.turno}}</td>
+                <td>{{vaga.modalidade}}</td>
+                <td>{{vaga.escolaridade}}</td>
+                <td>{{vaga.titulodavaga}}</td>
+                <td>R$ {{vaga.salario}}</td>
+                <td>{{vaga.datalimiteinscricao}}</td>
+                <td><button class="btn btn-primary" [id]="vaga.id">Ver Detalhes</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

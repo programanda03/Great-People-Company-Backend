@@ -1,0 +1,56 @@
+<div class="container cor-formulario">
+    <h1 class="text-lg-center titulo">Alteração de dados</h1>
+    <form class="margem-form">
+        <label for="nome" class="form-label titulo-campos">Nome: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.nome" name="nome">
+
+        <label for="razaosocial" class="form-label titulo-campos">Razão Social: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial">
+
+        <label for="cnpj" class="form-label titulo-campos">CNPJ: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj">
+
+        <label for="telefone" class="form-label titulo-campos">Telefone: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone">
+        
+        <label for="site" class="form-label titulo-campos">Site: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.site" name="site">
+
+        <label for="cep" class="mb-3 form-label titulo-campos">CEP: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" (change)="preencherEnderecoPorCep(endereco.cep)" name="cep">
+        
+        
+        <label for="logradouro" class="form-label titulo-campos">Logradouro: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.logradouro" name="logradouro">
+        
+        <label for="numero" class="form-label titulo-campos">Número: </label>
+        <input type="number" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.numero" name="numero">
+        
+        <label for="uf" class="mb-3 form-label titulo-campos">Estado: </label>
+        <select class="mb-3 form-select caixa-texto" (change)="listarMunicipiosPorUf(endereco.uf)" [(ngModel)]="endereco.uf" name="uf" id="uf">
+            <option value="" disabled>Selecione o estado</option>
+            <option *ngFor="let estado of estados" [value]="estado.sigla">{{estado.nome}}</option>
+        </select>
+        
+        <label for="cidade" class="mb-3 form-label titulo-campos">Cidade: </label>
+        <select class="mb-3 form-select caixa-texto" [(ngModel)]="endereco.cidade" name="cidade" id="cidade">
+            <option value="">Selecione a cidade</option>
+            <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{cidade.nome}}</option>
+            <option [value]="endereco.cidade">{{endereco.cidade}}</option>
+        </select>
+
+        <div *ngIf="userLogado.length == 14">
+            <label for="senha" class="mb-3 form-label titulo-campos">Defina sua nova senha: </label>
+            <input type="password" class="form-control mb-4" [(ngModel)]="user.senha" name="senha" id="senha">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" (change)="mostrarSenha()" name="verSenha" id="verSenha">
+                <label for="verSenha" class="form-check-label titulo-campos" style="font-size: 16px;">Ver Senha</label>
+            </div>
+        </div>
+
+        <div class="botao-centralizado espacamento-externo-botao">
+            <button type="submit" class="btn botao hover" (click)="Alterar(empresa)">Alterar</button>
+            <button type="submit" class="btn botao hover" (click)="voltar()">Voltar ao painel</button>
+        </div>
+    </form>
+</div>

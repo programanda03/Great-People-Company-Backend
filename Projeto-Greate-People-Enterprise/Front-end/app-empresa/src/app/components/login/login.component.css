@@ -1,0 +1,82 @@
+.imagem{
+}
+
+.area-login{
+    background-color: #127369; 
+}
+
+.texto-cabecalho{
+    color: #FEFAF6;
+
+}
+
+.texto-secundario{
+    color: #FEFAF6;
+    text-align: center;
+
+}
+
+.caixa-input{
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 70px;
+
+}
+
+.botao{
+
+    background-color:#5D8A66;
+    border: solid 1px;
+    color: #FEFAF6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: transform 100ms linear;
+}
+
+.botao:hover{
+    transform: scale(1.08)
+}
+
+.alinhamento-botao{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.textos{
+
+}
+
+
+/*.area-login{
+    color: #FEFAF6;
+    background-color: #549D7D;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 35;
+    padding-top: 50px; 
+    padding-bottom: 8px;
+
+}
+
+.botao-login{
+    color: #FEFAF6;
+    background-color:#127369;
+    border: solid 1px;
+    max-width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+
+
+.imagem-cabecalho{
+    display: flex;
+    justify-content: center;
+}*/

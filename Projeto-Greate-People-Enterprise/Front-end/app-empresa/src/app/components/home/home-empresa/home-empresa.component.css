@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+.apresentacao{
+    color: #FEFAF6;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    background-color: #21445B;
+}
+
+.cor-textos{
+    color: #FEFAF6;
+}
+
+.card-group{
+    background-color: #1A6566;
+}
+
+.card{
+    color: #FEFAF6;
+    font-family: 'Montserrat', sans-serif;
+    background-color:  #1A6566;
+}
+
+.imagem-card{
+    padding: 10px;
+}
+
+.margem-imagem-card {
+    margin-bottom: 10px;
+}
+
+.titulo-clientes{
+    color: #FEFAF6;
+    background-color: #5D8A66;
+    font-size: 35px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cor-clientes{
+    background-color: #5D8A66;
+}
+
+.area-logo{
+    width: 100%;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+.logo-clientes{
+    padding-bottom: 20px;
+    width: 170px;
+    height: auto;
+    margin-bottom: 5%;  
+}
+
+.area-cadastro{
+    background-color: #F28705;
+    padding-top: 30px; 
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.botao-cadastro{
+    background-color:#D96704;
+    border: solid 1px;
+    color: #FEFAF6;
+    max-width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    transition: transform 100ms linear;
+}
+
+.botao-cadastro:hover{
+    transform: scale(1.08)
+}
+
+.titulo{
+    color: #FEFAF6;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.rodape-principal{
+    color: #FEFAF6;
+    font-size: 20px;
+    background-color:#5D8A66;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagem-telefone{
+    width: 30px;
+    height: 30px;
+    padding-right: 6px;
+}
+
+.imagem-instagram{
+    width: 33px;
+    height: 30px;
+    padding-right: 6px;
+}
+
+.imagem-linkedin{
+    width: 35px;
+    height: 35px;
+    padding-right: 7px;
+}
+
+.alinhamento-imagem{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.espacamento-texto-rodape{
+    padding-bottom: 10px;
+}
+
+.margem-imagem-contato {
+    margin-bottom: 10px;
+}
+
+.largura-rodape{
+    width: 100%;
+    max-width: 1000px;
+}
+
+.area-mapa {
+    background-color: #5D8A66;
+}
+
+.mapa{
+    width: 100%;
+    padding-right: 350px;
+    padding-left: 350px;
+    background-color: #5D8A66;
+    padding-bottom: 40px;
+}
+
+.rodape-secundario{
+    background-color: #5D8A66;
+    font-size: 17px;
+    color: #FEFAF6;
+    border-top: 1px solid #FEFAF6;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}

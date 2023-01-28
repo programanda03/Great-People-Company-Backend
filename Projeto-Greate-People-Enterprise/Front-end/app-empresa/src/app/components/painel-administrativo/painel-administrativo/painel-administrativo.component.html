@@ -1,0 +1,44 @@
+<div class="container">
+    <h1 class="display-6 margem-superior mb-3">Boas vindas, administrador ao painel adminstrativo de empresas</h1> 
+    <h2 class="margem-superior mb-3">Listagem de empresas</h2>
+
+    <div class="mb-3">
+        <label class="form-label" for="">Digite o nome da empresa:</label>
+        <input type="text" class="form-control" #busca (keyup)="0"/>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Razão Social</th>
+                <th>CNPJ</th>
+                <th>Telefone</th>
+                <th>Site</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of empresas">
+                <td>{{e.id}}</td>
+                <td>{{e.nome}}</td>
+                <td>{{e.razaoSocial}}</td>
+                <td>{{e.cnpj}}</td>
+                <td>{{e.telefone}}</td>
+                <td>{{e.site}}</td>
+                <td>
+                    <button class="btn btn-primary" routerLink="/painelAdministrativo/detalhes/{{e.id}}">Detalhes</button>
+                </td>
+                <td>
+                    <a routerLink="/painelEmpresa/alterar/{{e.id}}"><i class="bi bi-pencil"></i></a>
+                </td>
+                <td>
+                    <a routerLink="/painelEmpresa/excluir/{{e.id}}"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

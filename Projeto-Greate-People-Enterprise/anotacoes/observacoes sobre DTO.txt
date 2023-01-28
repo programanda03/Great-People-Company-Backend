@@ -1,0 +1,43 @@
+- A classe Empresa.cs deve refletir como a API mostrará o objeto JSON
+- A classe EmpresaDTO.cs deve refletir como a tabela tb_empresa está no banco de dados
+- Assim, a classe EmpresaDao.cs é aonde transformaremos o objeto EmpresaDTO em um objeto Empresa.cs, para assim usar na API. 
+
+public class Empresa.cs{
+        public int Id { get; set; }
+        public int IdEndereco { get; set; }
+	-- Adiciona objeto endereco
+	public Endereco? EnderecoInfo { get; set; }
+        public string? Nome { get; set; }
+        public string? RazaoSocial { get; set; }
+        public string? Cpnj { get; set; }
+        public string? Telefone { get; set; }
+        public string? Site { get; set; }
+}
+
+- Criamos um struct Endereco pois precisamos adicionar a um objeto Empresa.
+
+public struct Endereco.cs{
+        public int Id { get; set; }
+	public string? Logradouro{ get; set; }
+        public string? Cep { get; set; }
+        public string? Cidade { get; set; }
+        public string? Uf { get; set; }
+        public int Numero { get; set; }
+}
+
+public class EmpresaDTO{
+	public int id { get; set; }
+        public int idEndereco { get; set; }
+        public string? nome { get; set; }
+        public string? razaosocial { get; set; }
+        public string? cpnj { get; set; }
+        public string? telefone { get; set; }
+        public string? site { get; set; }
+}
+
+// Links github, referencia DTO:
+FuncionariosDao - https://github.com/mandaapag03/Bootcamp-Angular/blob/main/CSharp/Projeto07_Interfaces/BibliotecaClasses/Data/FuncionariosDao.cs
+FuncionariosDto - https://github.com/mandaapag03/Bootcamp-Angular/blob/main/CSharp/Projeto07_Interfaces/BibliotecaClasses/DTO/FuncionarioDTO.cs
+dbFuncionarios - https://github.com/mandaapag03/Bootcamp-Angular/blob/main/CSharp/Projeto07_Interfaces/dbFuncionarios.sql
+Funcionario - https://github.com/mandaapag03/Bootcamp-Angular/blob/main/CSharp/Projeto07_Interfaces/BibliotecaClasses/Classes/Funcionario.cs
+Pessoa - https://github.com/mandaapag03/Bootcamp-Angular/blob/main/CSharp/Projeto07_Interfaces/BibliotecaClasses/Classes/Pessoa.cs

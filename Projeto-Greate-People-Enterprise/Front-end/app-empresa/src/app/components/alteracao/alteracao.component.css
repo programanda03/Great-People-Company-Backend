@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.div-centralizada{
+    display: flex;
+    justify-content: center;
+}
+
+.cabecalho-com-imagem {
+    position: relative;
+}
+
+.textos-imagem {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 12px;
+    padding-left: 69px;
+    padding-top: 90px;
+}
+
+.titulo-imagem{
+    color: #FEFAF6;
+    font-size: 55px;
+    font-family: 'Arimo', sans-serif;
+    line-height: 60px;
+}
+
+.subtitulo-imagem{
+    color: #FEFAF6;
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 50px;
+    padding-top: 10px;
+}
+
+.titulo{
+    color: #FEFAF6;
+    background-color: #F28705;
+    font-size: 35px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.titulo-campos{
+    color: #FEFAF6;
+    background-color: #F28705;
+    font-size: 18px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.cor-formulario{
+    background-color: #F28705;
+    padding-bottom: 40px;
+}
+
+.caixa-texto{
+    background-color: #FEFAF6;;
+}
+
+.espacamento-externo-botao{
+    padding-top: 10px;
+}
+
+.botao{
+    background-color:#D96704;
+    border: solid 1px;
+    color: #FEFAF6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: transform 100ms linear;
+}
+
+.botao:hover{
+    transform: scale(1.08)
+}
+
+.botao-centralizado{
+    display: flex;
+    justify-content: center;
+}
+
+.texto-flutuante{
+    position: relative;
+}
+
+.texto-imagem {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+

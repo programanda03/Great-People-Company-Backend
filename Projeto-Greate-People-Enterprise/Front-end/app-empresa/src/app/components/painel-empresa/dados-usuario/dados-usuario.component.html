@@ -1,0 +1,41 @@
+<div class="container">
+    <h2 class="">Dados de Usuário</h2>
+    <form class="tamanho-form">
+        <div class="mb-3">
+            <button class="btn btn-warning margem-botao" routerLink="/painelEmpresa/alterar/{{empresa.id}}">Alterar</button>
+            <button class="btn btn-danger margem-botao" routerLink="/painelEmpresa/excluir/{{empresa.id}}">Excluir conta</button>
+        </div>
+
+        <label for="nome" class="form-label titulo-campos">Nome: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.nome" name="nome">
+
+        <label for="razaosocial" class="form-label titulo-campos">Razão Social: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial">
+
+        <label for="cnpj" class="form-label titulo-campos">CNPJ: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj">
+
+        <label for="telefone" class="form-label titulo-campos">Telefone: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone">
+        
+        <label for="site" class="form-label titulo-campos">Site: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.site" name="site">
+
+        <label for="cep" class="mb-3 form-label titulo-campos">CEP: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" name="cep">
+        
+        
+        <label for="logradouro" class="form-label titulo-campos">Logradouro: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.logradouro" name="logradouro">
+        
+        <label for="numero" class="form-label titulo-campos">Número: </label>
+        <input readonly type="number" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.numero" name="numero">
+        
+        <label for="uf" class="mb-3 form-label titulo-campos">Estado: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.uf" name="uf">
+        
+        
+        <label for="cidade" class="mb-3 form-label titulo-campos">Cidade: </label>
+        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cidade" name="cidade">
+    </form>
+</div>
