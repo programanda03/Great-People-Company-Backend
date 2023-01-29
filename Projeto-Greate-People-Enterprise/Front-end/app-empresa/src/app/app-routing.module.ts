@@ -8,9 +8,7 @@ import { HomeEmpresaComponent } from './components/home/home-empresa/home-empres
 import { LoginComponent } from './components/login/login.component';
 import { DetalhesEmpresaComponent } from './components/painel-administrativo/detalhes-empresa/detalhes-empresa.component';
 import { PainelAdministrativoComponent } from './components/painel-administrativo/painel-administrativo/painel-administrativo.component';
-import { DadosUsuarioComponent } from './components/painel-empresa/dados-usuario/dados-usuario.component';
 import { PainelEmpresaComponent } from './components/painel-empresa/painel-empresa/painel-empresa.component';
-import { SuasVagasComponent } from './components/painel-empresa/suas-vagas/suas-vagas.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [

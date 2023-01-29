@@ -19,6 +19,8 @@ import { AlteracaoComponent } from './components/alteracao/alteracao.component';
 import { ExclusaoComponent } from './components/exclusao/exclusao.component';
 import { ErroComponent } from './components/erro/erro.component';
 import { DetalhesEmpresaComponent } from './components/painel-administrativo/detalhes-empresa/detalhes-empresa.component';
+import { FiltroEmpresaPipe } from './pipes/filtro-empresa.pipe';
+import { FiltroVagasPipe } from './pipes/filtro-vagas.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { DetalhesEmpresaComponent } from './components/painel-administrativo/det
     AlteracaoComponent,
     ExclusaoComponent,
     ErroComponent,
-    DetalhesEmpresaComponent
+    DetalhesEmpresaComponent,
+    FiltroEmpresaPipe,
+    FiltroVagasPipe
   ],
   imports: [
     BrowserModule,

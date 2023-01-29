@@ -1,28 +1,33 @@
 <div class="margem-superior">
     <h2 class="mb-3">Suas Vagas</h2>
+    <div class="d-flex mb-3">
+        <div class="me-auto p-2">
+            <input class="form-control me-2" size="50" type="search" placeholder="Pesquise pelo título da vaga" aria-label="Search" #busca (keyup)="0">
+        </div>
+      </div>
     <table class="table table-striped mb-3">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Turno</th>
-                <th>Modalidade</th>
-                <th>Escolaridade</th>
                 <th>Título da vaga</th>
+                <th>Modalidade</th>
+                <th>Turno</th>
+                <th>Escolaridade</th>
                 <th>Salário</th>
                 <th>Data limite de inscrição</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let vaga of listaVagas">
+            <tr *ngFor="let vaga of listaVagas | filtrovagas:busca.value">
                 <td>{{vaga.id}}</td>
-                <td>{{vaga.turno}}</td>
-                <td>{{vaga.modalidade}}</td>
-                <td>{{vaga.escolaridade}}</td>
                 <td>{{vaga.titulodavaga}}</td>
+                <td>{{vaga.modalidade}}</td>
+                <td>{{vaga.turno}}</td>
+                <td>{{vaga.escolaridade}}</td>
                 <td>R$ {{vaga.salario}}</td>
                 <td>{{vaga.datalimiteinscricao}}</td>
-                <td><button class="btn btn-primary" [id]="vaga.id">Ver Detalhes</button></td>
+                <td><button class="btn btn-primary" routerLink="/painelEmpresa/detalhesVaga/{{vaga.id}}">Ver Detalhes</button></td>
             </tr>
         </tbody>
     </table>
