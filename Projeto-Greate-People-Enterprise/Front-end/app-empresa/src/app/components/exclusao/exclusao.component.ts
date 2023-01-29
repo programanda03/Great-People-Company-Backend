@@ -29,7 +29,7 @@ export class ExclusaoComponent implements OnInit {
   excluir(id: string): void {
     this.empresaService.deleteEmpresa(id).subscribe(resposta => {
       if (resposta) {
-        this.router.navigate(["/home"]);
+        this.voltar();
       } else {
         this.router.navigate(["/erro"]);
       }

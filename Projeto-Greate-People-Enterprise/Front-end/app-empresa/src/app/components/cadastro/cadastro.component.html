@@ -22,16 +22,16 @@
         <label for="razaosocial" class="form-label titulo-campos">Razão Social: </label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial">
 
-        <label for="cnpj" class="form-label titulo-campos">CNPJ: </label>
+        <label for="cnpj" class="form-label titulo-campos">CNPJ: <span>*Apenas os números</span></label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj">
 
-        <label for="telefone" class="form-label titulo-campos">Telefone: </label>
+        <label for="telefone" class="form-label titulo-campos">Telefone: <span>*Apenas os números</span></label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone">
         
         <label for="site" class="form-label titulo-campos">Site: </label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.site" name="site">
 
-        <label for="cep" class="mb-3 form-label titulo-campos">CEP: </label>
+        <label for="cep" class="mb-3 form-label titulo-campos">CEP: <span>*Apenas os números</span></label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" (change)="preencherEnderecoPorCep(endereco.cep)" name="cep">
         
         
@@ -59,6 +59,7 @@
             <input class="form-check-input" type="checkbox" (change)="mostrarSenha()" name="verSenha" id="verSenha">
             <label for="verSenha" class="form-check-label titulo-campos" style="font-size: 16px;">Ver Senha</label>
         </div>
+        <div class="margem-superior alert alert-info">Seu nome usuário será seu CNPJ (apenas os números)</div>
         <div class="botao-centralizado espacamento-externo-botao">
             <button type="submit" class="btn botao hover"  (click)="incluir(empresa)">Finalizar cadastro</button>
         </div>
