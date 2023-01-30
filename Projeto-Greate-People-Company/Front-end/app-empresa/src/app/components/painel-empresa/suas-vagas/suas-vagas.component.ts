@@ -18,22 +18,16 @@ export class SuasVagasComponent implements OnInit {
     this.empresaService.getEmpresaPorCnpj(this.storage.getItem("user_name") as string)
       .subscribe(resp => {
         this.empresa = resp;
-        this.id = this.empresa.id as number;
-        this.ListarVagas(this.id);
+        this.listarVagas(this.empresa.id as number);
       });
   }
 
   storage: Storage = localStorage;
   listaVagas!: Vaga[];
   empresa!: Empresa;
-  id!: number;
 
-  public ListarVagas(id: number) {
-    this.vagas.getVagas().subscribe(resposta => {
-      // resposta.forEach(vaga => {
-      //   if (vaga.idempresa == id) {
-      //     this.listaVagas.push(vaga);
-      //   }
+  public listarVagas(id: number) {
+    this.vagas.getVagasPorEmpresa(id).subscribe(resposta => {
       this.listaVagas = resposta;
     });
   }

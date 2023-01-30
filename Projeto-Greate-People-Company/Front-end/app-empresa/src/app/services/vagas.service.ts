@@ -15,4 +15,8 @@ export class VagasService {
   public getVagas(): Observable<Vaga[]> {
     return this.http.get<Vaga[]>(this.baseUrl);
   }
+  public getVagasPorEmpresa(idEmpresa: number): Observable<Vaga[]> {
+    const url = `${this.baseUrl}?idempresa=${idEmpresa}`;
+    return this.http.get<Vaga[]>(url);
+  }
 }
