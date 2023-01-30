@@ -17,33 +17,33 @@
     <h1 class="text-lg-center titulo">Cadastro de empresa</h1>
     <form class="margem-form">
         <label for="nome" class="form-label titulo-campos">Nome: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.nome" name="nome">
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.nome" name="nome" placeholder="Digite o nome completo da empresa" required>
 
         <label for="razaosocial" class="form-label titulo-campos">Razão Social: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial">
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial" placeholder="Digite a razão social da empresa" required>
 
-        <label for="cnpj" class="form-label titulo-campos">CNPJ: <span>*Apenas os números</span></label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj">
+        <label for="cnpj" class="form-label titulo-campos">CNPJ: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj" placeholder="Ex.: 00000000000000" required>
 
-        <label for="telefone" class="form-label titulo-campos">Telefone: <span>*Apenas os números</span></label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone">
+        <label for="telefone" class="form-label titulo-campos">Telefone: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone" placeholder="Ex.: XXXXXXXXXX" required>
         
         <label for="site" class="form-label titulo-campos">Site: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.site" name="site">
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.site" name="site" placeholder="Ex.: www.sitedaempresa.com.br" required>
 
-        <label for="cep" class="mb-3 form-label titulo-campos">CEP: <span>*Apenas os números</span></label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" (change)="preencherEnderecoPorCep(endereco.cep)" name="cep">
+        <label for="cep" class="mb-3 form-label titulo-campos">CEP: </label>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" (change)="preencherEnderecoPorCep(endereco.cep)" name="cep" placeholder="Ex.: 00000000" required>
         
         
         <label for="logradouro" class="form-label titulo-campos">Logradouro: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.logradouro" name="logradouro">
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.logradouro" name="logradouro" placeholder="Ex.: Avenida Brasil" required>
         
         <label for="numero" class="form-label titulo-campos">Número: </label>
         <input type="number" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.numero" name="numero">
         
         <label for="uf" class="mb-3 form-label titulo-campos">Estado: </label>
         <select class="mb-3 form-select caixa-texto" (change)="listarMunicipiosPorUf(endereco.uf)" [(ngModel)]="endereco.uf" name="uf" id="uf">
-            <option value="" disabled>Selecione o estado</option>
+            <option value="" disabled selected>Selecione o estado</option>
             <option *ngFor="let estado of estados" [value]="estado.sigla">{{estado.nome}}</option>
         </select>
         
@@ -52,7 +52,7 @@
             <option value="">Selecione a cidade</option>
             <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{cidade.nome}}</option>
         </select>
-
+        
         <label for="senha" class="mb-3 form-label titulo-campos">Defina sua nova senha: </label>
         <input type="password" class="form-control mb-4" [(ngModel)]="senha" name="senha" id="senha">
         <div class="form-check">
@@ -63,6 +63,5 @@
         <div class="botao-centralizado espacamento-externo-botao">
             <button type="submit" class="btn botao hover"  (click)="incluir(empresa)">Finalizar cadastro</button>
         </div>
-
     </form>
 </div>

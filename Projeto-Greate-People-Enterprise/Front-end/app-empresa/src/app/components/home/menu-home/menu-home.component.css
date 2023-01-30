@@ -1,9 +1,6 @@
 .margem-botoes{
     margin: 3px;
 }
-.cor-menu-home{
-    background-color: #8CCDB0;
-}
 
 .botao-cadastro{
     background-color:#D96704;
@@ -12,11 +9,10 @@
     font-family: 'Nanum Gothic', sans-serif;
     transition: transform 100ms cubic-bezier(.45,.97,.68,2.48);
     font-weight: bold;
-
 }
 
 .botao-login{
-    background-color: #5D8A66;;
+    background-color: #5D8A66;
     border: solid 1px;
     color: #FEFAF6;
     font-family: 'Nanum Gothic', sans-serif;

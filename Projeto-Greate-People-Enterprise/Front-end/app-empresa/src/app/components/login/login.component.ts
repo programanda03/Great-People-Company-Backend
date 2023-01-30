@@ -30,13 +30,13 @@ export class LoginComponent implements OnInit {
         this.storage.setItem("user_name", resposta.nome);
         resposta.nivel == 'administrador' ? this.router.navigate(['painelAdministrativo']) : this.router.navigate(['painelEmpresa']);
       } else {
-        this.erro = "Usuário ou senha inválida";
+        this.erro = "Usuário ou senha inválido";
       }
     });
   }
 
   mostrarSenha(): void {
-    const inputSenha = document.getElementById('floatingPassword');
+    const inputSenha = document.getElementById('password');
     if (inputSenha?.getAttribute('type') == 'password') {
       inputSenha?.setAttribute("type", "text");
     } else {

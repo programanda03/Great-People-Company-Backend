@@ -1,34 +1,53 @@
-<div class="row">
-  <div class="imagem col-6">
-    <img src="assets/images/login.png" alt="" width="1000" />
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+  <title>Formulário de login</title>
+</head>
 
-<div class="row">
-  <div class="area-login col-6">
-    <div class="area-login container">
-      <h1 class="text-lg-center texto-cabecalho">Bem vindo novamente!</h1>
-      <h4 class="texto-secundario">Não tem uma conta ainda? Cadastre-se</h4>
-      <form class="margem-form mb-5">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Usuário" [(ngModel)]="user.nome" name="nome">
-          <label for="floatingInput caixa-input">Usuário</label>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="assets/images/login.png">
+    </div>
+    <div class="form">
+      <form action="#">
+        <div class="form-header">
+          <div class="title">
+            <h3>Seja bem vindo(a) a Great People Company</h3>
+          </div>
         </div>
-        <div class="form-floating mb-4">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" [(ngModel)]="user.senha" name="senha">
-          <label for="floatingPassword">Senha</label>
+        <div class="input-group">
+          <div class="input-box">
+            <label for="nome">Login</label>
+            <input id="nome" type="text" name="nome" placeholder="Digite seu usuário" [(ngModel)]="user.nome" required>
+          </div>
+
+          <div class="input-box">
+            <label for="password">Senha</label>
+            <input id="password" type="password" name="senha" [(ngModel)]="user.senha" placeholder="Digite sua senha" required>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" (change)="mostrarSenha()" name="verSenha" id="verSenha">
+            <label for="verSenha" class="form-check-label texto-secundario" style="font-size: 16px;">Ver Senha</label>
+          </div>
         </div>
-        <!-- Botão de ver senha -->
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" (change)="mostrarSenha()" name="verSenha" id="verSenha">
-          <label for="verSenha" class="form-check-label texto-secundario" style="font-size: 16px;">Ver Senha</label>
+        <div class="botao-login">
+          <button (click)="validar(user)"><a>Entrar</a></button>
         </div>
-        <!-- Botão de ver senha -->
-        <div class="alinhamento-botao">
-        <button type="button" class="btn botao hover" (click)="validar(user)">Entrar</button>
+        <div class="form-footer">
+          <div class="text-footer">
+            <h5>Não tem uma conta ainda?</h5>
+          </div>
         </div>
+        <div class="link-cadastro">
+          <a routerLink="/cadastro">Cadastre-se</a>
+        </div>
+        <div *ngIf="erro" class="alert alert-danger">{{erro}}</div>
       </form>
-      <div *ngIf="erro" class="alert alert-danger">{{erro}}</div>
     </div>
   </div>
-</div>
+</body>
+</html>
