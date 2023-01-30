@@ -31,8 +31,8 @@
         <tbody>
             <tr *ngFor="let e of empresas | filtroempresa:busca.value:uf.value">
                 <td>{{e.id}}</td>
-                <td>{{e.nome}}</td>
-                <td>{{e.razaoSocial}}</td>
+                <td>{{e.nome | uppercase}}</td>
+                <td>{{e.razaoSocial | uppercase}}</td>
                 <td>{{e.cnpj}}</td>
                 <td>{{e.telefone}}</td>
                 <td>{{e.site}}</td>

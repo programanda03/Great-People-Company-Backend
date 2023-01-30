@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.bloco-principal{
+    display: flex;
+    align-content: center;
+}
+.bloco-confirmacao{
+    background-color: antiquewhite;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+button{
+    width: 200px;
+    display: inline-block;
+    margin: 5px;
+}

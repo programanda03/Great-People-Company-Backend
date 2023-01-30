@@ -120,8 +120,7 @@ input-box input::placeholder {
     margin-bottom: 5px;
     display: flex;
     border-top: 1px solid #a6b4bd;
-
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 .text-footer {
@@ -139,6 +138,11 @@ input-box input::placeholder {
     font-weight: bold;
     display: flex;
     justify-content: center;
+}
+
+.erro{
+    visibility: hidden;
+    padding: 10px;
 }
 
 @media screen and (max-width: 1330px) {
