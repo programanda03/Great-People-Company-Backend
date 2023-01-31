@@ -19,9 +19,15 @@ export class ExclusaoComponent implements OnInit {
   empresa!: Empresa;
   userLogado!: string;
   storage: Storage = localStorage;
+  mensagemExclusao!: string;
 
   ngOnInit(): void {
     this.userLogado = this.storage.getItem("user_name") as string;
+    if (this.userLogado.length == 14) {
+      this.mensagemExclusao = "Deseja excluir sua conta?";
+    } else {
+      this.mensagemExclusao = "Deseja excluir essa conta?";
+    }
     this.id = this.route.snapshot.paramMap.get("id") as string;
     this.empresaService.getEmpresaPorId(this.id).subscribe(resp => this.empresa = resp)
   }

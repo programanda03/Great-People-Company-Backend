@@ -25,8 +25,8 @@
                 <td>{{vaga.modalidade}}</td>
                 <td>{{vaga.turno}}</td>
                 <td>{{vaga.escolaridade}}</td>
-                <td>R$ {{vaga.salario}}</td>
-                <td>{{vaga.datalimiteinscricao}}</td>
+                <td>{{vaga.salario | currency:"BRL"}}</td>
+                <td>{{vaga.datalimiteinscricao | date: "dd/MM/yy"}}</td>
                 <td><button class="btn btn-primary" routerLink="/painelEmpresa/detalhesVaga/{{vaga.id}}">Ver Detalhes</button></td>
             </tr>
         </tbody>

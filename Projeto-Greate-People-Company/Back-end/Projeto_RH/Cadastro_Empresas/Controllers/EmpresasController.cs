@@ -69,7 +69,7 @@ namespace Cadastro_Empresas.Controllers
                 return BadRequest("Não foi possível alterar seus dados, tente mais tarde ou entre em contato com nossa Central de atendimento - 0800 5540 9635");
             }
         }
-
+            
         [HttpPut("{id}")]
         public IActionResult PutEmpresa(Empresa empresa, int id)
         {

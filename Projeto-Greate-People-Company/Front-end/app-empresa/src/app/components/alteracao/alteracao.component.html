@@ -8,7 +8,9 @@
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial">
 
         <label for="cnpj" class="form-label titulo-campos">CNPJ: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj">
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj" id="cnpj" max="14">
+
+        <div *ngIf="mensagemCnpj"  class="alert alert-info">Para alterar o CNPJ entre em contato com nossa Central de atendimento através do telefone 0800 5540 9635</div>
 
         <label for="telefone" class="form-label titulo-campos">Telefone: </label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone">

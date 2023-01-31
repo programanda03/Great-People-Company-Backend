@@ -33,8 +33,8 @@
                 <td>{{e.id}}</td>
                 <td>{{e.nome | uppercase}}</td>
                 <td>{{e.razaoSocial | uppercase}}</td>
-                <td>{{e.cnpj}}</td>
-                <td>{{e.telefone}}</td>
+                <td class="cnpj">{{e.cnpj | formatacaocnpj}}</td>
+                <td>{{e.telefone | formatacaotelefone}}</td>
                 <td>{{e.site}}</td>
                 <td>
                     <button class="btn btn-primary" routerLink="/painelAdministrativo/detalhes/{{e.id}}">Detalhes</button>

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.storage.setItem("user_name", resposta.nome);
         resposta.nivel == 'administrador' ? this.router.navigate(['painelAdministrativo']) : this.router.navigate(['painelEmpresa']);
       } else {
-        this.mostrarErro("Usuário ou senha inválido");
+        this.mostrarErro("Usuário ou senha inválidos");
       }
     });
   }

@@ -17,22 +17,22 @@
     <h1 class="text-lg-center titulo">Cadastro de empresa</h1>
     <form class="margem-form">
         <label for="nome" class="form-label titulo-campos">Nome: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.nome" name="nome" placeholder="Digite o nome completo da empresa" required>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.nome" name="nome" placeholder="Digite o nome da empresa" required>
 
         <label for="razaosocial" class="form-label titulo-campos">Razão Social: </label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial" placeholder="Digite a razão social da empresa" required>
 
         <label for="cnpj" class="form-label titulo-campos">CNPJ: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj" placeholder="Ex.: 00000000000000" required>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj" placeholder="Ex.: 00.000.000/0000-00" required>
 
         <label for="telefone" class="form-label titulo-campos">Telefone: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone" placeholder="Ex.: XXXXXXXXXX" required>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone" placeholder="Ex.: (XX) XXXX-XXXX" required>
         
         <label for="site" class="form-label titulo-campos">Site: </label>
         <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.site" name="site" placeholder="Ex.: www.sitedaempresa.com.br" required>
 
         <label for="cep" class="mb-3 form-label titulo-campos">CEP: </label>
-        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" (change)="preencherEnderecoPorCep(endereco.cep)" name="cep" placeholder="Ex.: 00000000" required>
+        <input type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" (change)="preencherEnderecoPorCep(endereco.cep)" name="cep" placeholder="Ex.: 00000-000" required>
         
         
         <label for="logradouro" class="form-label titulo-campos">Logradouro: </label>
@@ -59,7 +59,13 @@
             <input class="form-check-input" type="checkbox" (change)="mostrarSenha()" name="verSenha" id="verSenha">
             <label for="verSenha" class="form-check-label titulo-campos" style="font-size: 16px;">Ver Senha</label>
         </div>
-        <div class="margem-superior alert alert-info">Seu nome usuário será seu CNPJ (apenas os números)</div>
+        <div class="alert alert-warning">Sua senha deve ter de 8 a 32 caracteres</div>
+        <div class="alert alert-info">Seu nome usuário será seu CNPJ (apenas os números)</div>
+        <div *ngIf="erros" class="alert alert-danger">
+            <ul>
+                <li *ngFor="let e of erros">{{e}}</li>
+            </ul>
+        </div>
         <div class="botao-centralizado espacamento-externo-botao">
             <button type="submit" class="btn botao hover"  (click)="incluir(empresa)">Finalizar cadastro</button>
         </div>

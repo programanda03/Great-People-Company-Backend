@@ -21,6 +21,9 @@ import { ErroComponent } from './components/erro/erro.component';
 import { DetalhesEmpresaComponent } from './components/painel-administrativo/detalhes-empresa/detalhes-empresa.component';
 import { FiltroEmpresaPipe } from './pipes/filtro-empresa.pipe';
 import { FiltroVagasPipe } from './pipes/filtro-vagas.pipe';
+import { FormatacaoCnpjPipe } from './pipes/formatacao-cnpj.pipe';
+import { FormatacaoTelefonePipe } from './pipes/formatacao-telefone.pipe';
+import { FormatacaoCepPipe } from './pipes/formatacao-cep.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { FiltroVagasPipe } from './pipes/filtro-vagas.pipe';
     ErroComponent,
     DetalhesEmpresaComponent,
     FiltroEmpresaPipe,
-    FiltroVagasPipe
+    FiltroVagasPipe,
+    FormatacaoCnpjPipe,
+    FormatacaoTelefonePipe,
+    FormatacaoCepPipe
   ],
   imports: [
     BrowserModule,

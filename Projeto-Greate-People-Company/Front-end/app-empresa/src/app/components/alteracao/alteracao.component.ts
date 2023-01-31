@@ -33,6 +33,8 @@ export class AlteracaoComponent {
   user: Usuario = new Usuario();
   senha!: string;
   userLogado!: string;
+  mensagemCnpj!: string;
+  erro!: string;
 
   ngOnInit(): void {
     this.userLogado = this.storage.getItem("user_name") as string;
@@ -42,12 +44,10 @@ export class AlteracaoComponent {
         resp => {
           this.empresa = resp;
           this.endereco = this.empresa.enderecoInfo as Endereco;
-        }
-      );
-      this.usuariosService.getUsuarioCnpj(this.userLogado).subscribe(resp => {
-        this.user = resp;
-      })
-      this.listarEstados();
+        });
+      this.usuariosService.getUsuarioCnpj(this.userLogado).subscribe(resp => this.user = resp);
+
+      this.desativarEdicaoCnpj();
     } else {
       let idempresa = this.route.snapshot.paramMap.get("id") as string;
       this.empresaService.getEmpresaPorId(idempresa).subscribe(
@@ -56,11 +56,12 @@ export class AlteracaoComponent {
           this.endereco = this.empresa.enderecoInfo as Endereco;
         }
       );
-      this.listarEstados()
     }
+    this.listarEstados();
   }
 
   Alterar(empresa: Empresa): void {
+    this.filtraDados(empresa, this.endereco);
     this.empresaService.putEmpresa(empresa).subscribe(() => {
       this.voltar();
     }, error => this.router.navigate(["/erro"]));
@@ -96,5 +97,30 @@ export class AlteracaoComponent {
 
   voltar(): void {
     this.userLogado.length == 14 ? this.router.navigate(["/painelEmpresa"]) : this.router.navigate(["/painelAdministrativo"])
+  }
+
+  filtraDados(empresa: Empresa, endereco: Endereco): void {
+    empresa.cnpj = empresa.cnpj.replace(/[^0-9]/g, "")
+    if (empresa.telefone.length == 11) {
+      empresa.telefone = empresa.telefone.replace(/[^0-9]/g, "")
+    } else {
+      empresa.telefone = empresa.telefone.replace(/[^0-9]/g, "")
+    }
+    endereco.cep = endereco.cep.replace(/[^0-9]/g, "");
+  }
+
+  desativarEdicaoCnpj() {
+    const inputCnpj = document.getElementById("cnpj");
+    inputCnpj?.setAttribute("readonly", "");
+    this.mensagemCnpj = "Para alterar o CNPJ entre em contato com nossa Central de atendimento - 0800 5540 9635";
+  }
+
+  validarDados(): void {
+    if (this.empresa.cnpj.length != 14) {
+      this.erro = "Informe um CNPJ válido";
+    }
+    if (this.senha.length < 8 || this.senha.length > 32) {
+      this.erro = "Senha Inválida";
+    }
   }
 }

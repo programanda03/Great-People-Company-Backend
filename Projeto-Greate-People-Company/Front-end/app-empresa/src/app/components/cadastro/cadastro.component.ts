@@ -9,6 +9,7 @@ import { Uf } from 'src/app/interface/LocalidadesApi/Estados/uf';
 import { Municipio } from 'src/app/interface/LocalidadesApi/Cidades/municipio';
 import { Usuario } from 'src/app/classes/usuario';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { FormatacaoCnpjPipe } from 'src/app/pipes/formatacao-cnpj.pipe';
 
 @Component({
   selector: 'app-cadastro',
@@ -26,6 +27,7 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
     this.endereco = { logradouro: '', cep: '', cidade: '', uf: '', numero: undefined };
     this.empresa = { nome: '', razaoSocial: '', cnpj: '', telefone: '', site: '' };
+    this.senha = "";
     this.listarEstados();
   }
 
@@ -35,15 +37,21 @@ export class CadastroComponent implements OnInit {
   cidades!: Municipio[];
   user: Usuario = new Usuario();
   senha!: string;
+  erros!: string[] | undefined;
 
   incluir(empresa: Empresa): void {
-    empresa.enderecoInfo = this.endereco;
-    this.empresaService.postEmpresa(empresa).subscribe(resp => this.empresa = resp);
-
-    this.user.nome = this.empresa.cnpj;
-    this.user.senha = this.senha;
-    this.usuariosService.postUsuarioNovo(this.user).subscribe(resp => this.user = resp);
-    this.router.navigate(['/login']);
+    this.filtraDados(empresa, this.endereco);
+    this.validarDados();
+    if (!this.erros) {
+      empresa.enderecoInfo = this.endereco;
+      this.empresaService.postEmpresa(empresa).subscribe(resp => {
+        this.empresa = resp;
+        this.user.nome = this.empresa.cnpj;
+        this.user.senha = this.senha;
+        this.usuariosService.postUsuarioNovo(this.user).subscribe(resp => this.user = resp);
+      });
+      this.router.navigate(['/login']);
+    }
   }
 
   preencherEnderecoPorCep(cep: string): void {
@@ -69,6 +77,44 @@ export class CadastroComponent implements OnInit {
       inputSenha?.setAttribute("type", "text");
     } else {
       inputSenha?.setAttribute("type", "password");
+    }
+  }
+
+  filtraDados(empresa: Empresa, endereco: Endereco): void {
+    empresa.cnpj = empresa.cnpj.replace(/[^0-9]/g, "")
+    if (empresa.telefone.length == 11) {
+      empresa.telefone = empresa.telefone.replace(/[^0-9]/g, "")
+    } else {
+      empresa.telefone = empresa.telefone.replace(/[^0-9]/g, "")
+    }
+    endereco.cep = endereco.cep.replace(/[^0-9]/g, "");
+  }
+
+  validarDados(): void {
+    this.erros = [];
+    let emp = this.empresa;
+    let end = this.endereco;
+
+    if (emp.nome == "") {
+      this.erros.push("O campo nome é obrigatório")
+    }
+    if (emp.razaoSocial == "") {
+      this.erros.push("O campo razão social é obrigatório")
+    }
+    if (this.empresa.cnpj.length != 14) {
+      this.erros.push("Informe um CNPJ válido");
+    }
+    if (emp.telefone == "") {
+      this.erros.push("O campo telefone é obrigatório")
+    }
+    if (end.cep == "" || end.logradouro == "" || end.cidade == "" || end.uf == "" || end.numero == 0) {
+      this.erros.push("Preencha todos os dados de endereço")
+    }
+    if (this.senha.length < 8 || this.senha.length > 32) {
+      this.erros.push("Senha Inválida");
+    }
+    if (this.erros.length == 0) {
+      this.erros = undefined;
     }
   }
 }
