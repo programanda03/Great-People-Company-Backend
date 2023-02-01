@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
 
   validar(usuario: Usuario): void {
+    this.filtrarDados(usuario);
     this.usuarioService.postUsuario(usuario).subscribe(resposta => {
 
       if (resposta != null) {
@@ -49,5 +50,8 @@ export class LoginComponent implements OnInit {
     } else {
       inputSenha?.setAttribute("type", "password");
     }
+  }
+  filtrarDados(usuario: Usuario): void {
+    usuario.nome = usuario.nome.replace(/[^0-9]/g, "")
   }
 }

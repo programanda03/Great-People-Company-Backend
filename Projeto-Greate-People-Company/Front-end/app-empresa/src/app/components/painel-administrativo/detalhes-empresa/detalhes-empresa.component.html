@@ -1,42 +1,33 @@
-<div class="container">
-    <form class="margem-form">
-        <h1 class="display-5 margem-superior mb-3">Detalhes da empresa</h1>
+<div class="fundo-externo">
+    <div class="alinhamento">
+        <form class="conteudo">
+            <h1 class="display-5 titulo">Detalhes da empresa</h1>
 
-        <div class="mb-3">
-            <button class="btn btn-secondary" routerLink="/painelAdministrativo">Voltar para a lista</button> | 
-            <button class="btn btn-warning margem-botao" routerLink="/painelEmpresa/alterar/{{empresa.id}}">Alterar</button> | 
-            <button class="btn btn-danger margem-botao" routerLink="/painelEmpresa/excluir/{{empresa.id}}">Excluir conta</button>
-        </div>
+            <p><span class="negrito">Nome: </span>{{empresa.nome}}</p>
 
-        <label for="nome" class="form-label titulo-campos">Nome: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.nome" name="nome">
+            <p><span class="negrito">Razão Social: </span>{{empresa.razaoSocial}}</p>
 
-        <label for="razaosocial" class="form-label titulo-campos">Razão Social: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.razaoSocial" name="razaosocial">
+            <p><span class="negrito">CNPJ: </span>{{empresa.cnpj| formatacaocnpj}}</p>
 
-        <label for="cnpj" class="form-label titulo-campos">CNPJ: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.cnpj" name="cnpj">
+            <p><span class="negrito">Telefone: </span>{{empresa.telefone | formatacaotelefone}}
+            
+            <p><span class="negrito">Site: </span>{{empresa.site}}</p>
 
-        <label for="telefone" class="form-label titulo-campos">Telefone: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.telefone" name="telefone">
-        
-        <label for="site" class="form-label titulo-campos">Site: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="empresa.site" name="site">
+            <p><span class="negrito">CEP: </span>{{endereco.cep | formatacaocep}}</p>
 
-        <label for="cep" class="mb-3 form-label titulo-campos">CEP: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cep" name="cep">
-           
-        <label for="logradouro" class="form-label titulo-campos">Logradouro: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.logradouro" name="logradouro">
-        
-        <label for="numero" class="form-label titulo-campos">Número: </label>
-        <input readonly type="number" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.numero" name="numero">
-        
-        <label for="uf" class="mb-3 form-label titulo-campos">Estado: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.uf" name="uf">
-        
-        
-        <label for="cidade" class="mb-3 form-label titulo-campos">Cidade: </label>
-        <input readonly type="text" class="form-control mb-4 caixa-texto" [(ngModel)]="endereco.cidade" name="cidade">
-    </form>
+            <p><span class="negrito">Logradouro: </span>{{endereco.logradouro}}</p>
+
+            <p><span class="negrito">Número: </span>{{endereco.numero}}</p>
+
+            <p><span class="negrito">Estado: </span>{{endereco.uf}}</p>
+
+            <p><span class="negrito">Cidade: </span>{{endereco.cidade}}</p>      
+            
+            <div class="mb-3 alinhamento-botoes">
+                <button class="btn botao-voltar" routerLink="/painelAdministrativo">Voltar para a lista</button> 
+                <button class="btn botao-alterar margem-botao" routerLink="/painelEmpresa/alterar/{{empresa.id}}">Alterar</button> 
+                <button class="btn botao-exclusao margem-botao" routerLink="/painelEmpresa/excluir/{{empresa.id}}">Excluir conta</button>
+            </div>
+        </form>
+    </div>
 </div>

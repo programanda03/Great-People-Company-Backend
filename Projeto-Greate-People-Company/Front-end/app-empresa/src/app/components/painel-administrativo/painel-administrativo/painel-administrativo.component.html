@@ -1,5 +1,6 @@
 <div class="container">
-    <h1 class="display-6 margem-superior mb-3">Boas vindas, administrador ao painel adminstrativo de empresas</h1> 
+    <h1 class="display-6 margem-superior mb-3">Boas vindas administrador ao painel adminstrativo de empresas</h1> 
+    <hr>
     <h2 class="margem-superior mb-3">Listagem de empresas</h2>
 
     <div class="d-flex mb-3">
@@ -15,14 +16,14 @@
       </div>
 
     <table class="table table-striped">
-        <thead>
+        <thead class="titulos-tabela">
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Razão Social</th>
-                <th>CNPJ</th>
-                <th>Telefone</th>
-                <th>Site</th>
+                <th class="cabecalho-tabela">ID</th>
+                <th class="cabecalho-tabela">Nome</th>
+                <th class="cabecalho-tabela">Razão Social</th>
+                <th class="cabecalho-tabela">CNPJ</th>
+                <th class="cabecalho-tabela">Telefone</th>
+                <th class="cabecalho-tabela">Site</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -30,14 +31,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let e of empresas | filtroempresa:busca.value:uf.value">
-                <td>{{e.id}}</td>
-                <td>{{e.nome | uppercase}}</td>
-                <td>{{e.razaoSocial | uppercase}}</td>
-                <td class="cnpj">{{e.cnpj | formatacaocnpj}}</td>
-                <td>{{e.telefone | formatacaotelefone}}</td>
-                <td>{{e.site}}</td>
+                <td class="dados">{{e.id}}</td>
+                <td class="dados">{{e.nome | uppercase}}</td>
+                <td class="dados">{{e.razaoSocial | uppercase}}</td>
+                <td class="dados">{{e.cnpj | formatacaocnpj}}</td>
+                <td class="dados">{{e.telefone | formatacaotelefone}}</td>
+                <td class="dados">{{e.site | camposopcionais}}</td>
                 <td>
-                    <button class="btn btn-primary" routerLink="/painelAdministrativo/detalhes/{{e.id}}">Detalhes</button>
+                    <button class="btn botao-detalhes" routerLink="/painelAdministrativo/detalhes/{{e.id}}">Detalhes</button>
                 </td>
                 <td>
                     <a routerLink="/painelEmpresa/alterar/{{e.id}}"><i class="bi bi-pencil"></i></a>

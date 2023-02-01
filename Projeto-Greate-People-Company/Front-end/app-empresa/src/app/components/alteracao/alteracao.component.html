@@ -1,3 +1,18 @@
+<div class="div-centralizada">
+    <div class="cabecalho-com-imagem">
+        <img src="assets/images/atualizacao.png" alt="" width="1320" />
+        <div class="textos-imagem">
+            <div class="titulo-imagem ">
+                Mantenha seus dados atualizados<br>
+                para os melhores resultados
+            </div>
+            <div class="subtitulo-imagem">
+                Seleção rápida e contratação assertiva <br>
+                dos melhores colaboradores 
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container cor-formulario">
     <h1 class="text-lg-center titulo">Alteração de dados</h1>
     <form class="margem-form">
@@ -43,13 +58,17 @@
 
         <div *ngIf="userLogado.length == 14">
             <label for="senha" class="mb-3 form-label titulo-campos">Defina sua nova senha: </label>
-            <input type="password" class="form-control mb-4" [(ngModel)]="user.senha" name="senha" id="senha">
+            <input type="password" class="form-control mb-4" [(ngModel)]="senha" name="senha" id="senha">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" (change)="mostrarSenha()" name="verSenha" id="verSenha">
-                <label for="verSenha" class="form-check-label titulo-campos" style="font-size: 16px;">Ver Senha</label>
+                <label for="verSenha" class="form-check-label titulo-campos" style="font-size: 16px;">Ver senha</label>
             </div>
         </div>
-
+        <div *ngIf="erros" class="alert alert-danger">
+            <ul>
+                <li *ngFor="let e of erros">{{e}}</li>
+            </ul>
+        </div>
         <div class="botao-centralizado espacamento-externo-botao">
             <button type="submit" class="btn botao hover" (click)="Alterar(empresa)">Alterar</button>
             <button type="submit" class="btn botao hover" (click)="voltar()">Voltar ao painel</button>

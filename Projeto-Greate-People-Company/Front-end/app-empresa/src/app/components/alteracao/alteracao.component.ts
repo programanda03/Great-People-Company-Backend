@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { throwError } from 'rxjs';
 import { Usuario } from 'src/app/classes/usuario';
 import { Empresa } from 'src/app/interface/EmpresaApi/empresa';
 import { Endereco } from 'src/app/interface/EmpresaApi/endereco';
@@ -32,12 +31,12 @@ export class AlteracaoComponent {
   cidades!: Municipio[];
   user: Usuario = new Usuario();
   senha!: string;
-  userLogado!: string;
+  userLogado: string = this.storage.getItem("user_name") as string;
   mensagemCnpj!: string;
-  erro!: string;
+  erros!: string[] | undefined;
 
   ngOnInit(): void {
-    this.userLogado = this.storage.getItem("user_name") as string;
+    // this.userLogado = this.storage.getItem("user_name") as string;
 
     if (this.userLogado.length == 14) {
       this.empresaService.getEmpresaPorCnpj(this.userLogado).subscribe(
@@ -45,7 +44,10 @@ export class AlteracaoComponent {
           this.empresa = resp;
           this.endereco = this.empresa.enderecoInfo as Endereco;
         });
-      this.usuariosService.getUsuarioCnpj(this.userLogado).subscribe(resp => this.user = resp);
+      this.usuariosService.getUsuarioCnpj(this.userLogado).subscribe(resp => {
+        this.user = resp;
+        this.senha = this.user.senha;
+      });
 
       this.desativarEdicaoCnpj();
     } else {
@@ -54,19 +56,23 @@ export class AlteracaoComponent {
         resp => {
           this.empresa = resp;
           this.endereco = this.empresa.enderecoInfo as Endereco;
-        }
-      );
+        });
+      this.senha = "";
     }
     this.listarEstados();
   }
 
   Alterar(empresa: Empresa): void {
     this.filtraDados(empresa, this.endereco);
-    this.empresaService.putEmpresa(empresa).subscribe(() => {
-      this.voltar();
-    }, error => this.router.navigate(["/erro"]));
-
-    this.usuariosService.putUsuario(this.user).subscribe(resp => this.user = resp);
+    this.validarDados();
+    if (!this.erros) {
+      empresa.enderecoInfo = this.endereco;
+      this.empresaService.putEmpresa(empresa).subscribe(() => {
+        this.user.senha = this.senha;
+        this.usuariosService.putUsuario(this.user).subscribe(resp => this.user = resp);
+        this.voltar();
+      });
+    }
   }
 
   preencherEnderecoPorCep(cep: string): void {
@@ -116,11 +122,35 @@ export class AlteracaoComponent {
   }
 
   validarDados(): void {
-    if (this.empresa.cnpj.length != 14) {
-      this.erro = "Informe um CNPJ válido";
+    this.erros = [];
+    let emp = this.empresa;
+    let end = this.endereco;
+
+    if (emp.nome == "") {
+      this.erros.push("O campo nome é obrigatório")
     }
-    if (this.senha.length < 8 || this.senha.length > 32) {
-      this.erro = "Senha Inválida";
+    if (emp.razaoSocial == "") {
+      this.erros.push("O campo razão social é obrigatório")
+    }
+    if (this.empresa.cnpj.length != 14) {
+      this.erros.push("Informe um CNPJ válido");
+    }
+    if (emp.telefone == "") {
+      this.erros.push("O campo telefone é obrigatório")
+    }
+    if (!(emp.telefone.length == 10 || emp.telefone.length == 11)) {
+      this.erros.push("O número de  telefone é inválido")
+    }
+    if (end.cep == "" || end.logradouro == "" || end.cidade == "" || end.uf == "" || end.numero == null) {
+      this.erros.push("Preencha todos os dados de endereço. (Obs: Se seu endereço não tiver número, preencha com 0)");
+    }
+    if (this.userLogado.length == 14) {
+      if (this.senha.length < 8 || this.senha.length > 32) {
+        this.erros.push("Senha Inválida");
+      };
+    }
+    if (this.erros.length == 0) {
+      this.erros = undefined;
     }
   }
 }

@@ -85,6 +85,22 @@ input-box input::placeholder {
     color: #000000be;
 }
 
+.form-check-input {
+    margin: 0.6rem 0;
+    padding: 0.8rem;
+}
+
+.form-check-input:checked{
+    background-color:#5D8A66;
+    border-color:#eeeeee75;
+}
+
+
+
+.texto-secundario {
+    padding: 0.8rem;
+}
+
 .botao-login{
     display: flex;
     align-items: center;
@@ -110,8 +126,16 @@ input-box input::placeholder {
     color: #fff;
 }
 
+.alert-danger {
+    margin-bottom: 2.1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
 .form-header{
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
     display: flex;
     padding-top: 10px;
 
@@ -120,7 +144,7 @@ input-box input::placeholder {
     margin-bottom: 5px;
     display: flex;
     border-top: 1px solid #a6b4bd;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .text-footer {
@@ -128,21 +152,15 @@ input-box input::placeholder {
     align-items: center;
     justify-content: center;
     width: 100%;
-
 }
 
 .link-cadastro a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     color: #D96704;
     font-weight: bold;
     display: flex;
     justify-content: center;
-}
-
-.erro{
-    visibility: hidden;
-    padding: 10px;
 }
 
 @media screen and (max-width: 1330px) {

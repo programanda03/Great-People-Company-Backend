@@ -11,7 +11,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { LoginComponent } from './components/login/login.component';
 import { PainelEmpresaComponent } from './components/painel-empresa/painel-empresa/painel-empresa.component';
-import { MenuPainelComponent } from './components/painel-empresa/menu-painel/menu-painel.component';
 import { SuasVagasComponent } from './components/painel-empresa/suas-vagas/suas-vagas.component';
 import { DadosUsuarioComponent } from './components/painel-empresa/dados-usuario/dados-usuario.component';
 import { PainelAdministrativoComponent } from './components/painel-administrativo/painel-administrativo/painel-administrativo.component';
@@ -24,6 +23,7 @@ import { FiltroVagasPipe } from './pipes/filtro-vagas.pipe';
 import { FormatacaoCnpjPipe } from './pipes/formatacao-cnpj.pipe';
 import { FormatacaoTelefonePipe } from './pipes/formatacao-telefone.pipe';
 import { FormatacaoCepPipe } from './pipes/formatacao-cep.pipe';
+import { CamposopcionaisPipe } from './pipes/camposopcionais.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { FormatacaoCepPipe } from './pipes/formatacao-cep.pipe';
     CadastroComponent,
     LoginComponent,
     PainelEmpresaComponent,
-    MenuPainelComponent,
     SuasVagasComponent,
     DadosUsuarioComponent,
     PainelAdministrativoComponent,
@@ -46,7 +45,8 @@ import { FormatacaoCepPipe } from './pipes/formatacao-cep.pipe';
     FiltroVagasPipe,
     FormatacaoCnpjPipe,
     FormatacaoTelefonePipe,
-    FormatacaoCepPipe
+    FormatacaoCepPipe,
+    CamposopcionaisPipe
   ],
   imports: [
     BrowserModule,

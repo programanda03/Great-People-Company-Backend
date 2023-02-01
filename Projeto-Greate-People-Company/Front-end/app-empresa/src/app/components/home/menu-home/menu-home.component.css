@@ -1,3 +1,20 @@
+.menu {
+    margin-left: 240px;
+    font-size: 19px;
+}
+
+.sub-menu {
+    margin-left: 240px;
+    font-size: 15px;
+}
+
+.alinhamento-botoes {
+    justify-content: flex-end;
+    position: absolute;
+    right: 12px;
+    bottom: 46px;
+}
+
 .margem-botoes{
     margin: 3px;
 }

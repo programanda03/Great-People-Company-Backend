@@ -16,7 +16,7 @@
       <form action="#">
         <div class="form-header">
           <div class="title">
-            <h3>Seja bem vindo(a) a Great People Company</h3>
+            <h4>Seja bem vindo(a) a Great People Company</h4>
           </div>
         </div>
         <div class="input-group">
@@ -31,15 +31,13 @@
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" (change)="mostrarSenha()" name="verSenha" id="verSenha">
-            <label for="verSenha" class="form-check-label texto-secundario" style="font-size: 16px;">Ver Senha</label>
+            <label for="verSenha" class="form-check-label texto-secundario" style="font-size: 16px;">Ver senha</label>
           </div>
         </div>
         <div class="botao-login">
           <button (click)="validar(user)"><a>Entrar</a></button>
         </div>
-
         <div class="erro" id="mensagem-erro">{{erro}}</div>
-        
         <div class="form-footer">
           <div class="text-footer">
             <h5>Não tem uma conta ainda?</h5>

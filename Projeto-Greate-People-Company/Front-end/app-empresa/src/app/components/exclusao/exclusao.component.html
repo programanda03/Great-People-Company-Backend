@@ -1,10 +1,10 @@
-<div class="container bloco-principal">
-        <div class="bloco-confirmacao">
-                <h1 class="text-danger">{{mensagemExclusao}}</h1>
-                <p class="text-uppercase">Empresa: {{empresa.nome}}</p>
-                <form>
-                        <button class="btn btn-secondary" (click)="voltar()">Não, voltar para o painel</button>
-                        <button class="btn btn-danger" (click)="excluir(id)">Sim, excluir a conta</button>
-                </form>
+<div class="fundo-externo">
+        <div class="container alinhamento">
+            <h2 class="titulo">{{mensagemExclusao}}</h2>
+            <p class="text-uppercase">Empresa: {{empresa.nome}}</p>
+            <div>
+                <button class="btn botao-voltar" (click)="voltar()">Não, voltar para o painel</button> 
+                <button class="btn botao-exclusao" (click)="excluir(id)">Sim, excluir minha conta</button>
+            </div>  
         </div>
-</div>
+    </div>

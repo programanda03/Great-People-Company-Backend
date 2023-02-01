@@ -25,10 +25,12 @@ export class SuasVagasComponent implements OnInit {
   storage: Storage = localStorage;
   listaVagas!: Vaga[];
   empresa!: Empresa;
+  temVagasCadastradas!: boolean;
 
   public listarVagas(id: number) {
     this.vagas.getVagasPorEmpresa(id).subscribe(resposta => {
       this.listaVagas = resposta;
+      this.temVagasCadastradas = this.listaVagas.length > 0;
     });
   }
 }

@@ -36,7 +36,7 @@
 
 .titulo{
     color: #FEFAF6;
-    background-color: #F28705;
+    background-color: #5D8A66;
     font-size: 35px;
     padding-top: 30px;
     padding-bottom: 20px;
@@ -45,13 +45,13 @@
 
 .titulo-campos{
     color: #FEFAF6;
-    background-color: #F28705;
+    background-color: #5D8A66;
     font-size: 18px;
     font-family: 'Nanum Gothic', sans-serif;
 }
 
 .cor-formulario{
-    background-color: #F28705;
+    background-color: #5D8A66;    ;
     padding-bottom: 40px;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .botao{
-    background-color:#D96704;
+    background-color:#537C5B;
     border: solid 1px;
     color: #FEFAF6;
     font-family: 'Poppins', sans-serif;
@@ -76,6 +76,7 @@
     padding-left: 30px;
     padding-right: 30px;
     transition: transform 100ms linear;
+    margin: 5px;
 }
 
 .botao:hover{

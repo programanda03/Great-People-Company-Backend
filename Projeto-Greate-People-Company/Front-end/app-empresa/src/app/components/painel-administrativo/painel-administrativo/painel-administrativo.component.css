@@ -1,3 +1,40 @@
-.cnpj{
+.dados{
     font-size: 15px;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: #a6b4bd;
+    color: #000;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table>:not(caption)>*>* {
+    background-color: #bcc6cd;
+    color: #000;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.cabecalho-tabela {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.titulos-tabela {
+    font-size: 18px;
+}
+
+.botao-detalhes {
+    color: #fff;
+    background-color: #5E7888;
+    border: solid 1px #fff;
+
+}
+
+.bi-pencil {
+    color: green;
+}
+
+.bi-trash {
+    color: red;
 }
