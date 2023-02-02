@@ -9,7 +9,6 @@ import { Uf } from 'src/app/interface/LocalidadesApi/Estados/uf';
 import { Municipio } from 'src/app/interface/LocalidadesApi/Cidades/municipio';
 import { Usuario } from 'src/app/classes/usuario';
 import { UsuariosService } from 'src/app/services/usuarios.service';
-import { FormatacaoCnpjPipe } from 'src/app/pipes/formatacao-cnpj.pipe';
 
 @Component({
   selector: 'app-cadastro',
@@ -107,8 +106,8 @@ export class CadastroComponent implements OnInit {
     if (emp.telefone == "") {
       this.erros.push("O campo telefone é obrigatório")
     }
-    if (end.cep == "" || end.logradouro == "" || end.cidade == "" || end.uf == "" || end.numero == 0) {
-      this.erros.push("Preencha todos os dados de endereço")
+    if (end.cep == "" || end.logradouro == "" || end.cidade == "" || end.uf == "" || end.numero == null) {
+      this.erros.push("Preencha todos os dados de endereço. (Obs: Se seu endereço não tiver número, preencha com 0)");
     }
     if (this.senha.length < 8 || this.senha.length > 32) {
       this.erros.push("Senha Inválida");

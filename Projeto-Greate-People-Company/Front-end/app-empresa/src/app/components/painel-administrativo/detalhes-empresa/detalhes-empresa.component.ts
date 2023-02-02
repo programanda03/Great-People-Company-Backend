@@ -24,6 +24,4 @@ export class DetalhesEmpresaComponent implements OnInit {
       this.endereco = this.empresa.enderecoInfo as Endereco;
     })
   }
-
-
 }
