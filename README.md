@@ -15,3 +15,5 @@ Desenvolvido por:
 - Claudia Firmo
  -  Linkedin: https://www.linkedin.com/in/claudiafirmo/
   - GitHub: https://github.com/claudiafirmo
+
+Link do projeto no Linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7027365141595721728?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7027365141595721728%29
