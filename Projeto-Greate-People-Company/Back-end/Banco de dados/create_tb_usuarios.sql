@@ -28,7 +28,3 @@ insert into tb_usuarios (nome, senha, nivel) values
 
 insert into tb_usuarios (nome, senha, nivel) values 
 ('142264', 'admin', 1)
-
-delete from tb_empresa where cnpj = '60840512000198';
-
-update tb_usuarios set senha = 'abc' where nome = '85462359856324';

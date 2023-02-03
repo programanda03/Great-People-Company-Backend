@@ -5,6 +5,17 @@
     font-family: 'DM Sans', sans-serif;
 }
 
+.botao-vagas{
+    color: #fff;
+    background-color: #5E7888;
+    border: solid 1px #fff;
+    transition: transform 2ms;
+}
+
+.botao-vagas:hover{
+    transform: scale(1.08);
+}
+
 .titulos-tabela {
     font-size: 18px;
 }
@@ -13,6 +24,11 @@
     color: #fff;
     background-color: #5E7888;
     border: solid 1px #fff;
+    transition: transform 2ms;
+}
+
+.botao-detalhes:hover{
+    transform: scale(1.08);
 }
 
 .tabela-listrada>tbody>tr:nth-of-type(odd)>* {
