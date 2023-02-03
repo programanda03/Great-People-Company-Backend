@@ -10,12 +10,8 @@ export class ViacepService {
 
   constructor(private http: HttpClient) { }
 
-  cep!: string;
-
-  baseUrl!: string;
-
   public getEnderecoPorCep(cep: string): Observable<ViaCep> {
-    this.baseUrl = "http://viacep.com.br/ws/" + cep + "/json/";
-    return this.http.get<ViaCep>(this.baseUrl);
+    let baseUrl = "http://viacep.com.br/ws/" + cep + "/json/";
+    return this.http.get<ViaCep>(baseUrl);
   }
 }

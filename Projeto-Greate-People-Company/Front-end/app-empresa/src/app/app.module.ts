@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { EmpresaComponent } from './components/empresa.component';
 import { MenuGeralComponent } from './components/menu-geral/menu-geral.component';
