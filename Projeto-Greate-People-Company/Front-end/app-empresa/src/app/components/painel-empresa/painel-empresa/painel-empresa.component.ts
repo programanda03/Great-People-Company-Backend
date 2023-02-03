@@ -8,10 +8,11 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./painel-empresa.component.css']
 })
 export class PainelEmpresaComponent implements OnInit {
-  constructor(private empresaService: EmpresaService) { }
 
   storage: Storage = localStorage;
   empresa!: Empresa;
+
+  constructor(private empresaService: EmpresaService) { }
 
   ngOnInit(): void {
     let userLogado = this.storage.getItem("user_name") as string;

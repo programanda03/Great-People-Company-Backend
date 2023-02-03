@@ -1,0 +1,44 @@
+.fundo-externo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;     
+}
+.alinhamento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;     
+    width: 40%;
+    height: 220px;   
+}
+
+.titulo {
+    color: #B02A37;
+    padding-bottom: 5px;
+}
+
+.botao-voltar {
+    color: #fff;
+    background-color: #537C5B;
+    margin-right: 4px;
+    border: solid 1px #fff;
+    border: solid 1px #fff;
+    transition: transform 2ms;
+}
+
+.botao-voltar:hover{
+    transform: scale(1.08);
+}
+
+.botao-exclusao {
+    color: #fff;
+    background-color: red;
+    border: solid 1px #fff;
+    transition: transform 2ms;
+}
+
+.botao-exclusao:hover{
+    transform: scale(1.08);
+}

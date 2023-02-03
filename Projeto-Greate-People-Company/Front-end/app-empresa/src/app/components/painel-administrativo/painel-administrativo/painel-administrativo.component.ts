@@ -11,12 +11,12 @@ import { LocalidadesService } from 'src/app/services/localidades.service';
 })
 export class PainelAdministrativoComponent implements OnInit {
 
+  empresas!: Empresa[];
+  estados!: Uf[];
+
   constructor(
     private empresaService: EmpresaService,
     private localidadesService: LocalidadesService) { }
-
-  empresas!: Empresa[];
-  estados!: Uf[];
 
   ngOnInit(): void {
     this.listarEmpresas();

@@ -10,12 +10,12 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./detalhes-empresa.component.css']
 })
 export class DetalhesEmpresaComponent implements OnInit {
+  empresa!: Empresa;
+  endereco!: Endereco;
+
   constructor(
     private route: ActivatedRoute,
     private empresaService: EmpresaService) { }
-
-  empresa!: Empresa;
-  endereco!: Endereco;
 
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get("idempresa") as string;

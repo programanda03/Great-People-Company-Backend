@@ -10,6 +10,12 @@ import { VagasService } from 'src/app/services/vagas.service';
   styleUrls: ['./suas-vagas.component.css']
 })
 export class SuasVagasComponent implements OnInit {
+
+  storage: Storage = localStorage;
+  listaVagas!: Vaga[];
+  empresa!: Empresa;
+  temVagasCadastradas!: boolean;
+
   constructor(
     private vagas: VagasService,
     private empresaService: EmpresaService) { }
@@ -21,11 +27,6 @@ export class SuasVagasComponent implements OnInit {
         this.listarVagas(this.empresa.id as number);
       });
   }
-
-  storage: Storage = localStorage;
-  listaVagas!: Vaga[];
-  empresa!: Empresa;
-  temVagasCadastradas!: boolean;
 
   public listarVagas(id: number) {
     this.vagas.getVagasPorEmpresa(id).subscribe(resposta => {

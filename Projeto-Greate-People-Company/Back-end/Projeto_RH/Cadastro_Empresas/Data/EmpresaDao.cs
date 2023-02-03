@@ -6,6 +6,55 @@ namespace Cadastro_Empresas.Data
 {
     public class EmpresaDao : Dao, ICrud<Empresa>
     {
+        // Recebe um objeto EmpresaDTO e transforma em um objeto Empresa
+        private Empresa CriarEmpresa(EmpresaDTO empresa)
+        {
+            Empresa empresaBuscada = new Empresa()
+            {
+                Id = empresa.id,
+                IdEndereco = empresa.idendereco,
+                Cnpj = empresa.cnpj,
+                Nome = empresa.nome,
+                Site = empresa.site,
+                Telefone = empresa.telefone,
+                RazaoSocial = empresa.razaosocial
+            };
+
+            var endereco = Conn.QueryFirstOrDefault<Endereco>("Select logradouro, cep, cidade, uf, numero from tb_endereco where id = @id", new { id = empresaBuscada.IdEndereco });
+
+            empresaBuscada.EnderecoInfo = endereco;
+            return empresaBuscada;
+        }
+
+        // Busca no banco de dados a empresa com o ID passado como parâmetro
+        private Empresa BuscaEmpresa(int id)
+        {
+            var empresa = Conn.QueryFirstOrDefault<EmpresaDTO>("Select * from tb_empresa where id = @id", new { id });
+            if (empresa != null)
+            {
+            
+                return CriarEmpresa(empresa);
+            }
+            else
+            {
+                throw new Exception("Não há nenhuma empresa com este id");
+            }
+        }
+
+        // Busca no banco de dados a empresa com o CNPJ passado como parâmetro
+        private Empresa BuscaEmpresa(string? cnpj)
+        {
+            var empresa = Conn.QueryFirstOrDefault<EmpresaDTO>("Select * from tb_empresa where cnpj = @cnpj", new { cnpj });
+            if (empresa != null)
+            {
+                return CriarEmpresa(empresa);
+            }
+            else
+            {
+                throw new Exception("Não há nenhuma empresa com este CNPJ");
+            }
+        }
+        
         public Empresa Alterar(Empresa objeto, int id = 0)
         {
             try
@@ -31,52 +80,6 @@ namespace Cadastro_Empresas.Data
             finally
             {
                 FecharConexao();
-            }
-        }
-
-        private Empresa CriarEmpresa(EmpresaDTO empresa)
-        {
-            Empresa empresaBuscada = new Empresa()
-            {
-                Id = empresa.id,
-                IdEndereco = empresa.idendereco,
-                Cnpj = empresa.cnpj,
-                Nome = empresa.nome,
-                Site = empresa.site,
-                Telefone = empresa.telefone,
-                RazaoSocial = empresa.razaosocial
-            };
-
-            var endereco = Conn.QueryFirstOrDefault<Endereco>("Select logradouro, cep, cidade, uf, numero from tb_endereco where id = @id", new { id = empresaBuscada.IdEndereco });
-
-            empresaBuscada.EnderecoInfo = endereco;
-            return empresaBuscada;
-        }
-
-        private Empresa BuscaEmpresa(int id)
-        {
-            var empresa = Conn.QueryFirstOrDefault<EmpresaDTO>("Select * from tb_empresa where id = @id", new { id });
-            if (empresa != null)
-            {
-            
-                return CriarEmpresa(empresa);
-            }
-            else
-            {
-                throw new Exception("Não há nenhuma empresa com este id");
-            }
-        }
-
-        private Empresa BuscaEmpresa(string? cnpj)
-        {
-            var empresa = Conn.QueryFirstOrDefault<EmpresaDTO>("Select * from tb_empresa where cnpj = @cnpj", new { cnpj });
-            if (empresa != null)
-            {
-                return CriarEmpresa(empresa);
-            }
-            else
-            {
-                throw new Exception("Não há nenhuma empresa com este CNPJ");
             }
         }
 
@@ -143,31 +146,13 @@ namespace Cadastro_Empresas.Data
 
                 List<Empresa> listaEmpresas = new List<Empresa>();
                 var empresas = Conn.Query<EmpresaDTO>("SELECT * FROM tb_empresa ORDER BY id ASC");
-                foreach(var item in empresas) 
+                foreach(var empresadto in empresas) 
                 {
-                    Empresa empresa = new Empresa()
-                    {
-                        Id = item.id,
-                        IdEndereco = item.idendereco,
-                        Cnpj = item.cnpj,
-                        Nome= item.nome,
-                        Site=item.site,
-                        Telefone= item.telefone,
-                        RazaoSocial = item.razaosocial
-                    };
-
-                    StringBuilder sb = new StringBuilder();
-
-                    sb.Append("SELECT logradouro, cep, cidade, uf, numero FROM tb_endereco WHERE id = @id");
-
-                    var endereco = Conn.QueryFirstOrDefault<Endereco>(sb.ToString(), new { id = item.idendereco });
-
-                    empresa.EnderecoInfo = endereco;
+                    Empresa empresa = CriarEmpresa(empresadto);
 
                     listaEmpresas.Add(empresa);
                 }
-                return listaEmpresas;
-                
+                return listaEmpresas;  
             }
             finally
             {

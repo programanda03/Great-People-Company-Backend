@@ -16,19 +16,6 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private empresaService: EmpresaService,
-    private viacep: ViacepService,
-    private localidades: LocalidadesService,
-    private usuariosService: UsuariosService) { }
-
-  ngOnInit(): void {
-    this.endereco = { logradouro: '', cep: '', cidade: '', uf: '', numero: undefined };
-    this.empresa = { nome: '', razaoSocial: '', cnpj: '', telefone: '', site: '' };
-    this.senha = "";
-    this.listarEstados();
-  }
 
   empresa!: Empresa;
   endereco!: Endereco;
@@ -37,6 +24,21 @@ export class CadastroComponent implements OnInit {
   user: Usuario = new Usuario();
   senha!: string;
   erros!: string[] | undefined;
+
+  constructor(
+    private router: Router,
+    private empresaService: EmpresaService,
+    private viacep: ViacepService,
+    private localidades: LocalidadesService,
+    private usuariosService: UsuariosService) { }
+
+
+  ngOnInit(): void {
+    this.endereco = { logradouro: '', cep: '', cidade: '', uf: '', numero: undefined };
+    this.empresa = { nome: '', razaoSocial: '', cnpj: '', telefone: '', site: '' };
+    this.senha = "";
+    this.listarEstados();
+  }
 
   incluir(empresa: Empresa): void {
     this.filtraDados(empresa, this.endereco);

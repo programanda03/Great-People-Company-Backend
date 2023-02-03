@@ -9,19 +9,19 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private usuarioService: UsuariosService) { }
 
   erro!: string;
   user!: Usuario;
   storage: Storage = localStorage;
 
+  constructor(
+    private router: Router,
+    private usuarioService: UsuariosService) { }
+
   ngOnInit(): void {
     this.user = new Usuario();
     this.storage.removeItem("user_name");
   }
-
 
   validar(usuario: Usuario): void {
     this.filtrarDados(usuario);

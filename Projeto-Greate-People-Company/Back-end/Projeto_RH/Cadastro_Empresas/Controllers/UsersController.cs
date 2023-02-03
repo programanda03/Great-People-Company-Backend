@@ -21,7 +21,7 @@ namespace Cadastro_Empresas.Controllers
         }
 
         [HttpPost]
-        public Usuario? PostUsuario(Usuario usuario, [FromQuery(Name = "novo")] bool novo, string? cnpj)
+        public Usuario? PostUsuario(Usuario usuario, [FromQuery(Name = "novo")] bool novo)
         {
             if (novo)
             {

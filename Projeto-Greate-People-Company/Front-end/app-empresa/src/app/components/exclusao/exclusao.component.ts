@@ -9,17 +9,18 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./exclusao.component.css']
 })
 export class ExclusaoComponent implements OnInit {
-  constructor(
-    private route: ActivatedRoute,
-    private empresaService: EmpresaService,
-    private router: Router
-  ) { }
 
   id!: string;
   empresa!: Empresa;
   userLogado!: string;
   storage: Storage = localStorage;
   mensagemExclusao!: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private empresaService: EmpresaService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.userLogado = this.storage.getItem("user_name") as string;
@@ -39,10 +40,10 @@ export class ExclusaoComponent implements OnInit {
       } else {
         this.router.navigate(["/erro"]);
       }
-    })
+    });
   }
 
   voltar(): void {
-    this.userLogado.length == 14 ? this.router.navigate(["/painelEmpresa"]) : this.router.navigate(["/painelAdministrativo"])
+    this.userLogado.length == 14 ? this.router.navigate(["/home"]) : this.router.navigate(["/painelAdministrativo"])
   }
 }

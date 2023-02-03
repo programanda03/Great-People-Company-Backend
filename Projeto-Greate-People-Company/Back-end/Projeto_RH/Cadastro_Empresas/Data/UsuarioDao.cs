@@ -1,12 +1,11 @@
 ﻿using Cadastro_Empresas.Model;
 using Dapper;
-using System;
 
 namespace Cadastro_Empresas.Data
 {
     public class UsuarioDao: Dao
     {
-
+        // Realiza validação retornando um usuário no banco que contenha nome e senha do usuário passado como parâmetro.
         private Usuario? Busca(Usuario usuario)
         {
             string sql = "SELECT u.nome, u.senha, n.descricao as Nivel FROM tb_usuarios u inner join tb_nivel n on u.nivel = n.id where nome = @nome AND senha = @senha";
