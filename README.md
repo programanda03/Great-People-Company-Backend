@@ -1,7 +1,7 @@
-# Boas vindas ao projeto Greate People Company
-Desenvolvido como um projeto de conclusão do **Bootcamp Angular Developer** pela Impacta Treinamentos, a Greate People é uma empresa fictícia de recursos humanos que necessita de um site para permitir que empresas disponibilizem suas vagas de emprego e para que pessoas interessadas se candidatem nessas vagas, além de um sistema de administrador para empresas e candidatos.
+# Boas vindas ao projeto Great People Company
+Desenvolvido como um projeto de conclusão do **Bootcamp Angular Developer** pela Impacta Treinamentos, a Great People é uma empresa fictícia de recursos humanos que necessita de um site para permitir que empresas disponibilizem suas vagas de emprego e para que pessoas interessadas se candidatem nessas vagas, além de um sistema de administrador para empresas e candidatos.
 
-A **Greate People Company** é uma divisão responsável pelos recursos de empresas, tais como **cadastro e acesso ao painel de controle**, para inclusão e acesso de suas vagas e alteração de seus dados de cadastro. Além disso, nossa divisão contém um painel de administrador focado para auxiliar as empresas.
+A **Great People Company** é uma divisão responsável pelos recursos de empresas, tais como **cadastro e acesso ao painel de controle**, para inclusão e acesso de suas vagas e alteração de seus dados de cadastro. Além disso, nossa divisão contém um painel de administrador focado para auxiliar as empresas.
 
 Este projeto utiliza as seguintes tecnologias:
  - Front-end : **Angular**
