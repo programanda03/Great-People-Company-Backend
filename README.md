@@ -11,11 +11,11 @@ Este projeto utiliza as seguintes tecnologias:
 Desenvolvido por:
 - Amanda Pagani
  - Linkedin: https://www.linkedin.com/in/amanda-pagani-lima/
- - GitHub: https://github.com/mandaapag03
+ - GitHub: https://github.com/programanda03
 - Claudia Firmo
  -  Linkedin: https://www.linkedin.com/in/claudiafirmo/
   - GitHub: https://github.com/claudiafirmo
 
-Link para o repositório do Front-end: https://github.com/mandaapag03/Great-People-Company-FrontEnd
+Link para o repositório do Front-end: https://github.com/programanda03/Great-People-Company-FrontEnd
 
 Link do projeto no Linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7027365141595721728?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7027365141595721728%29
